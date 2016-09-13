@@ -1,0 +1,65 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "2.0",
+		"title": "Send attachment onto Odoo"
+	},
+	"paths": {
+		"/CreateFilesOrAttachmentDirectStorage/{filename}": {
+			"post": {
+				"tags": [
+					"CreateFilesOrAttachmentDirectStorage"
+				],
+				"description": "Push a file.",
+				"consumes": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "filename",
+						"in": "path",
+						"format": "string",
+						"description": "file.ext nom du fichier avec son extension",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "resource",
+						"in": "body",
+						"description": "le corps de la requete au format json",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/resource"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					},
+					"default": {
+						"description": "Error"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"resource": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"id_participant": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"data": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

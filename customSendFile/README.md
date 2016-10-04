@@ -1,0 +1,3 @@
+# customSendFile
+Useless out of this context, SQL structure etc...
+It's just a sample that permit to save a binary file, et save his poperties in a database service.
